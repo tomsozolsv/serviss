@@ -1,2 +1,2 @@
-#			Vards			        Datums			        Laiks			    Problema			 Marka
-1			Juris Ozoliņš			21/12/2022			14:15			Bremzes neiet			Audi
+#			Vards			        Datums			        Laiks			    Problema			 Marka    			Telefons
+1				Juris				22/11/2022				17:15				bremzes neiet				Audi				29299299

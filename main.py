@@ -1,3 +1,6 @@
+from datetime import date
+diena = date.today()
+sodiena = diena.strftime("%d/%m/%Y")
 class menu:
     def __init__(pasa, izvele):
         pasa.izvele = izvele
@@ -32,10 +35,12 @@ class menu:
             laiks = input("Ievadi vēlamo laiku: ")
             problema = input("Īsi apraksti savu problēmu: ")
             marka = input("Ievadi savu auto marku: ")
+            telefons = input("Ievadi savu telefona numuru:")
             file = open("rezervacijas.txt", "a")
-            file.write(f"{num}\t\t\t{vards}\t\t\t{datums}\t\t\t{laiks}\t\t\t{problema}\t\t\t{marka}\n")
+            file.write(f"{num}\t\t\t\t{vards}\t\t\t\t{datums}\t\t\t\t{laiks}\t\t\t\t{problema}\t\t\t\t{marka}\t\t\t\t{telefons}\n")
             file.close()
             print()
+
 
         elif izvele == "C":
             resnum = input("Ievadi pieteikuma numuru: ")
@@ -62,10 +67,10 @@ while True:
         file = open("rezervacijas.txt", "r")
     except FileNotFoundError:
         file = open("rezervacijas.txt", "w+")
-        file.write("#\t\t\tVards\t\t\t        Datums\t\t\t        Laiks\t\t\t    Problema\t\t\t Marka\n")
+        file.write("#\t\t\tVards\t\t\t        Datums\t\t\t        Laiks\t\t\t    Problema\t\t\t Marka    \t\t\tTelefons\n")
     file.close()
 
-    print("Autoservisa pieteikšānās sistēma")
+    print(f"Autoservisa pieteikšānās sistēma, strādājam no 08:00 - 17:00, šodien ir {sodiena}")
     print("Sistēmas iespējas:")
     print("A. Apskatīt visus pieteikumus\tB. Pierakstīties pakalpojumam")
     print("C. Izdzēst pieteikumu\t\tD. Iziet")
