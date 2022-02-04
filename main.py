@@ -1,4 +1,5 @@
 from datetime import date
+import sys
 diena = date.today()
 sodiena = diena.strftime("%d/%m/%Y")
 class menu:
@@ -31,11 +32,15 @@ class menu:
                 num = int(ped_rinda[0]) + 1
 
             vards = input("Ievadi savu vārdu: ")
-            datums = input("Ievadi datumu(dd/mm/yyyy): ")
-            laiks = input("Ievadi vēlamo laiku: ")
+            datums,menesis,gads = input("Ievadi datumu(dd/mm/yyyy): ").split('/')
+            laiks,b = input("Ievadi vēlamo laiku: ").split(':')
+            laiks = int(laiks)
+            if laiks>17 or laiks<8:
+              sys.exit("Serviss šajā laikā nav atvērts!")
+              
             problema = input("Īsi apraksti savu problēmu: ")
             marka = input("Ievadi savu auto marku: ")
-            telefons = input("Ievadi savu telefona numuru:")
+            telefons = int(input("Ievadi savu telefona numuru:"))
             file = open("rezervacijas.txt", "a")
             file.write(f"{num}\t\t\t\t{vards}\t\t\t\t{datums}\t\t\t\t{laiks}\t\t\t\t{problema}\t\t\t\t{marka}\t\t\t\t{telefons}\n")
             file.close()
@@ -55,11 +60,10 @@ class menu:
             file2.close()
 
         elif izvele == "D":
-            import sys
             sys.exit("Paldies Jums!")
 
         else:
-            print("Notikusi ķļūda. Lūdzu mēģiniet vēlreiz.")
+            print("Nezināma izvēle. Lūdzu mēģiniet vēlreiz.")
 
 
 while True:
@@ -67,7 +71,7 @@ while True:
         file = open("rezervacijas.txt", "r")
     except FileNotFoundError:
         file = open("rezervacijas.txt", "w+")
-        file.write("#\t\t\tVards\t\t\t        Datums\t\t\t        Laiks\t\t\t    Problema\t\t\t Marka    \t\t\tTelefons\n")
+        file.write("#\t\t\tVārds\t\t\t        Datums\t\t\t        Laiks\t\t\t    Problēma\t\t\t Marka    \t\t\tTelefons\n")
     file.close()
 
     print(f"Autoservisa pieteikšānās sistēma, strādājam no 08:00 - 17:00, šodien ir {sodiena}")
