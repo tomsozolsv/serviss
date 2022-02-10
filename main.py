@@ -2,6 +2,9 @@ from datetime import date
 import sys
 diena = date.today()
 sodiena = diena.strftime("%d/%m/%Y")
+d = int(diena.strftime("%d"))
+m = int(diena.strftime("%m"))
+g = int(diena.strftime("%Y"))
 class menu:
     def __init__(pasa, izvele):
         pasa.izvele = izvele
@@ -32,7 +35,7 @@ class menu:
                 num = int(ped_rinda[0]) + 1
 
             vards = input("Ievadi savu vārdu: ")
-            datums,menesis,gads = input("Ievadi datumu(dd/mm/yyyy): ").split('/')
+            datums = input("Ievadi datumu(dd/mm/yyyy):") 
             laiks,b = input("Ievadi vēlamo laiku: ").split(':')
             laiks = int(laiks)
             if laiks>17 or laiks<8:
