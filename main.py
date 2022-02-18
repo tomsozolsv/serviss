@@ -1,5 +1,5 @@
 from datetime import datetime
-from datetime import date #importē laikus un datumus
+from datetime import date #importē laika un datumu funkcijas
 import datetime
 import sys #vairāk konsoles iespējas
 
@@ -21,18 +21,18 @@ class menu: #tiek definēts izvēļu logs
                 print()
             else:
                 file = open("rezervacijas.txt", "r")
-                print(file.read()) #fails tiek atvērs, un tiek parādīti pieteikumi konsolē
+                print(file.read()) #fails tiek atvērts, un tiek parādīti pieteikumi konsolē
                 file.close()
 
         elif izvele == "B": #pieteikt jaunu pieteikumu
             with open("rezervacijas.txt", "r") as file: #tiek atvērts fails lasīšanai
-                for ped_rinda in file:
+                for ped_rinda in file: #apskatīta pēdējā rinda failā
                     pass
 
             if ped_rinda[0] == "#":
-                num = 1 #indeksi pieteikumiem
+                num = 1 #indeksi izveidoti
             else:
-                num = int(ped_rinda[0]) + 1
+                num = int(ped_rinda[0]) + 1 #nākamais pieteikuma indekss ir iepriekšējais plus 1
 
             vards = input("Ievadi savu vārdu un uzvārdu: ") #klienta vārds, uzvārds
           
@@ -67,10 +67,10 @@ class menu: #tiek definēts izvēļu logs
             laiki='laiki.txt' #atvērts fails ar laikiem
             with open(laiki) as f_obj:
               laikidiv=f_obj.read() #pārbauda, vai jau ir aizņemts
-            if pieteikums in laikidiv:
+            if pieteikums in laikidiv: #ja laiks aizņemts, sistēma apturēta
               sys.exit("Atvainojiet, šis laiks jau ir aizņemts.")
              
-            file = open("laiki.txt","a+")
+            file = open("laiki.txt","a+") #atvērts laiku fails
             file.write(f"{pieteikums}\n") #ievadīts pieteikuma laiks citā failā
             file.close()
           
@@ -89,7 +89,7 @@ class menu: #tiek definēts izvēļu logs
 
             for line in rindas:
                 if not line.startswith(resnum):
-                    file2.write(line) 
+                    file2.write(line) #līnijas, kuras neatbilst izvēlētajam tiek paturētas
             file2.close()
 
         elif izvele == "D": #ja izvēle d, sistēma apturēta
@@ -105,9 +105,9 @@ while True:
     except FileNotFoundError: #ja faila nav, tas tiek izveidots
         file = open("rezervacijas.txt", "w+")
         file.write("#\t\t\tVārds\t\t\t       Datums\t\t\t        Laiks\t\t\t     Problēma\t\t\tMarka    \t\t\tTelefons\n")
-    file.close()
+    file.close() #un aizvērts
 
-    print(f"Autoservisa pieteikšānās sistēma, strādājam no 08:00 - 17:00, šodien ir {sodiena}")
+    print(f"TDI Valmiera, strādājam no 08:00 - 17:00, šodien ir {sodiena}")
     print("Mūsu telefons: +371 29 299 299")
     print("Sistēmas iespējas:")
     print("A. Apskatīt visus pieteikumus\tB. Pierakstīties pakalpojumam")

@@ -1,4 +1,4 @@
 #			Vārds			       Datums			        Laiks			     Problēma			Marka    			Telefons
 1				Jānis Jansons				22/02/2022				14:30:00				bremzes				Mazda				27775656
 2				Juris Pēteris				22/02/2022				16:00:00				dzinējs				Audi				26665575
-3				Pēteris Kalns				01/03/2022				14:30:00				dzinējs				Mazda				26664456
+3				Juris Bērziņš				02/03/2022				12:30:00				dzinējs				Opel				23339012

@@ -1,3 +1,4 @@
 [datetime.time(14, 30), '22/02/2022']
 [datetime.time(16, 0), '22/02/2022']
 [datetime.time(14, 30), '01/03/2022']
+[datetime.time(12, 30), '02/03/2022']
