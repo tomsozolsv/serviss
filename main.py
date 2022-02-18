@@ -51,7 +51,7 @@ class menu: #tiek definēts izvēļu logs
             sakums = datetime.datetime.strptime(sakums, '%H:%M').time()
             if laiks<sakums or laiks>beigas: #ja ievadītais laiks neatbilst, sistēma apstājas
               sys.exit("Serviss šajā laikā nav atvērts!")
-            laicins=[laiks,datums]
+            laicins=[laiks,datums] #laiks plus datums ievietots vienā sarakstā
 
             problema = input("Īsi apraksti savu problēmu: ") #klienta problēmas apraksts
             marka = input("Ievadi savu auto marku: ") #klienta auto marka
@@ -63,8 +63,8 @@ class menu: #tiek definēts izvēļu logs
             if vards in teksts: #ja jā, pieteikums atcelts
               sys.exit("Uz Jūsu vārda pastāv pieteikums! Apmeklējiet vai izdzēsiet to.")
               
-            pieteikums=''.join(str(laicins)) 
-            laiki='laiki.txt'
+            pieteikums=''.join(str(laicins)) #laiks un datums tiek apvienots vienā laikā
+            laiki='laiki.txt' #atvērts fails ar laikiem
             with open(laiki) as f_obj:
               laikidiv=f_obj.read() #pārbauda, vai jau ir aizņemts
             if pieteikums in laikidiv:
